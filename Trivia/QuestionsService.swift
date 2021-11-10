@@ -46,26 +46,3 @@ class QuestionsService {
         }
     }
 }
-
-//func getRandomQuestion(completion: @escaping (Question) -> Void) {
-//        let randomQuestionURL = "https://opentdb.com/api.php?amount=1&type=boolean"
-//        apiClient.get(url: randomQuestionURL) { response in
-//            switch response {
-//            case .success(let data):
-//                do {
-//                    if let dataOK = data {
-//                        NSLog(dataOK.description)
-//                        print(dataOK)
-//                        let question = try JSONDecoder().decode(Questions.self, from: dataOK)
-//                        completion(question.results[0])
-//                    }
-//                } catch {
-//                    print(error)
-//                    completion(Question(category: "catch error", type: "catch error", difficulty: "catch error", question: "catch error", correct_answer: "catch error", incorrect_answers: [String]()))
-//                }
-//            case .failure(let error):
-//                print(error)
-//                completion(Question(category: "failure", type: "failure", difficulty: "failure", question: "failure", correct_answer: "failure", incorrect_answers: [String]()))
-//            }
-//        }
-//    }

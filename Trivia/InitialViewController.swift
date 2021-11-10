@@ -69,29 +69,24 @@ class InitialViewController: UIViewController, UITextFieldDelegate {
         self.present(tabBarController, animated: true)
     }
     
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("ViewWillAppear invocado")
         // It's called right before the view appears. It's useful to hide/show fields or any kind of operation that you wish to occur when the view appears.
         // It may be called more than once.
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        print("ViewDidAppear invocado")
         // It's called right after view appears. Used, i.e, for starting an animation.
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        print("ViewWillDisappear invocado")
         // It's called right before the view dissapears.
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        print("ViewDidDisappear invocado")
         // It's called when the view has gone. 
     }
 
