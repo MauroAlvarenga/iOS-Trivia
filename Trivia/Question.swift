@@ -16,17 +16,7 @@ struct Question: Codable {
     var incorrect_answers: [String]
 }
 
-//var json = {"response_code": 0,
-//        "results": [
-//            {"category":"Science & Nature",
-//                "type":"boolean",
-//                "difficulty":"easy",
-//                "question":"Celiac Disease is a disease that effects the heart, causing those effected to be unable to eat meat.",
-//                "correct_answer":"False",
-//                "incorrect_answers":["True"]}
-//        ]}
-
-//The following code is used for testing when not fetching the questions from the api
+//The following code is used for testing when not fetching the questions from the API
 
 struct LocalQuestion: Codable {
     var question: String

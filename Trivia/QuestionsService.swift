@@ -17,9 +17,15 @@ class QuestionsService {
     
     let apiClient = AlamofireAPIClient()
 
-    func getRandomQuestion(completion: @escaping ([Question]) -> Void) {
-        let randomQuestionURL = "https://opentdb.com/api.php?amount=1&type=boolean"
-        apiClient.get(url: randomQuestionURL) { response in
+    func getQuestion(for category: Int, completion: @escaping (Question) -> Void) {
+        var questionURL: String
+        if category == 0 {
+            questionURL = "https://opentdb.com/api.php?amount=1&type=boolean"
+        } else {
+            let stringCategory = String(category)
+            questionURL = "https://opentdb.com/api.php?amount=1&category=" + stringCategory + "&type=boolean"
+        }
+        apiClient.get(url: questionURL) { response in
             switch response {
             case .success(let data):
                 do {
@@ -27,39 +33,39 @@ class QuestionsService {
                         NSLog(dataOK.description)
                         print(dataOK)
                         let question = try JSONDecoder().decode(Questions.self, from: dataOK)
-                        completion(question.results)
+                        completion(question.results[0])
                     }
                 } catch {
                     print(error)
-                    completion([])
+                    completion(Question(category: "catch error", type: "catch error", difficulty: "catch error", question: "catch error", correct_answer: "catch error", incorrect_answers: [String]()))
                 }
             case .failure(let error):
                 print(error)
-                completion([])
-            }
-
-        }
-
-    }
-
-    func getQuestions(for category: Int, completion: @escaping ([Question]) -> Void) {
-        let categoriesURL = "https://opentdb.com/api_category.php"
-        apiClient.get(url: categoriesURL) { response in
-            switch response {
-            case .success(let data):
-                do {
-                    if let data = data {
-                        let questions = try JSONDecoder().decode(Questions.self, from: data)
-                        completion(questions.results)
-                    }
-                } catch {
-                    completion([])
-                }
-            case .failure(_):
-                completion([])
+                completion(Question(category: "failure", type: "failure", difficulty: "failure", question: "failure", correct_answer: "failure", incorrect_answers: [String]()))
             }
         }
     }
-
-
 }
+
+//func getRandomQuestion(completion: @escaping (Question) -> Void) {
+//        let randomQuestionURL = "https://opentdb.com/api.php?amount=1&type=boolean"
+//        apiClient.get(url: randomQuestionURL) { response in
+//            switch response {
+//            case .success(let data):
+//                do {
+//                    if let dataOK = data {
+//                        NSLog(dataOK.description)
+//                        print(dataOK)
+//                        let question = try JSONDecoder().decode(Questions.self, from: dataOK)
+//                        completion(question.results[0])
+//                    }
+//                } catch {
+//                    print(error)
+//                    completion(Question(category: "catch error", type: "catch error", difficulty: "catch error", question: "catch error", correct_answer: "catch error", incorrect_answers: [String]()))
+//                }
+//            case .failure(let error):
+//                print(error)
+//                completion(Question(category: "failure", type: "failure", difficulty: "failure", question: "failure", correct_answer: "failure", incorrect_answers: [String]()))
+//            }
+//        }
+//    }

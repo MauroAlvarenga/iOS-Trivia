@@ -11,58 +11,95 @@ class QuestionViewController: UIViewController {
 
     @IBOutlet weak var questionLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var scoreLabel: UILabel!
     
     private var questions = Contenido.shared.getQuestions()
     private var currentQuestionIndex = 0
     private var username: String?
-    var categoryID: Int?
+    private var score: Int?
     
-    //Agregar puntuacion, sumar 5 con cada correcta.
-    
+    var categoryID = 0
+    private var currentQuestion: Question?
     private let questionsService = QuestionsService()
     
-    
+    let userDefaults = UserDefaults()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(patternImage: UIImage(named: "background_1")!)
         //setCurrentQuestion(for: currentQuestionIndex)
-        let userDefaults = UserDefaults()
+        //setUsername()
         if let usernameSet = userDefaults.string(forKey: "username") {
-            username = usernameSet
-            nameLabel.text = usernameSet + ":"
+            self.username = usernameSet
+            self.nameLabel.text = usernameSet + ":"
         } else {
-            username = "Jugador:"
+            self.username = "Jugador:"
         }
-        //getQuestions()
-        setRandomQuestion()
+        getQuestion()
+        //setRandomQuestion()
     }
-
-//    private func getQuestions() {
-//        questionsService.getQuestions() { [weak self] question in
-//            self!.questionLabel.text = question.question
-//        }
-//    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        //setScore()
+        self.score = userDefaults.integer(forKey: "score")
+        self.scoreLabel.text = "Score: " + String(self.score!)
+    }
     
     @IBAction func yesButtonTapped(_ sender: UIButton) {
-        let result = validateCurrentQuestion(answer: true)
+        //let result = validateCurrentQuestion(answer: true)
+        let result = validateCurrentQuestion(answer: "True")
         sendResultAlert(for: result)
     }
     
     @IBAction func noButtonTapped(_ sender: UIButton) {
-        let result = validateCurrentQuestion(answer: false)
+       // let result = validateCurrentQuestion(answer: false)
+        let result = validateCurrentQuestion(answer: "False")
         sendResultAlert(for: result)
     }
     
+    private func getQuestion() {
+        questionsService.getQuestion(for: categoryID) { [weak self] receivedQuestion in
+            guard let strongSelf = self else { return }
+            
+            strongSelf.currentQuestion = receivedQuestion
+            strongSelf.questionLabel.text = receivedQuestion.question.htmlDecoded
+        }
+    }
+    
+//    private func setRandomQuestion() {
+//        questionsService.getRandomQuestion { [weak self] receivedQuestion in
+//            //if receivedQuestions.count > 0 {
+//            print(receivedQuestion)
+//            self?.currentQuestion = receivedQuestion
+//            self?.questionLabel.text = receivedQuestion.question.htmlDecoded
+//            //}
+//        }
+//    }
+    
+    private func validateCurrentQuestion(answer: String) -> Bool {
+        //questions[currentQuestionIndex].answer == answer
+        if let rightAnswer = currentQuestion?.correct_answer {
+            return rightAnswer == answer
+        }
+        return false
+    }
+    
+    private func sendResultAlert(for result: Bool) {
+        result ? rightAnswerTapped() : wrongAnswerTapped()
+    }
     
     func rightAnswerTapped() {
-        let alertSI = UIAlertController(title: "Excellent!", message: "Good Job, \(username!)! 😁", preferredStyle: .alert)
-        alertSI.addAction(UIAlertAction(title: "Thanks! 😎", style: .cancel, handler: { [self] _ in
+        let alertYES = UIAlertController(title: "Excellent!", message: "Good Job, \(username!)! 😁", preferredStyle: .alert)
+        alertYES.addAction(UIAlertAction(title: "Thanks! 😎", style: .cancel, handler: { [self] _ in
             NSLog("The \"correct answer\" alert occured.")
             //updateQuestion()
-            setRandomQuestion()
+            //setRandomQuestion()
+            self.score! += 5
+            self.scoreLabel.text = "Score: " + String(self.score!)
+            userDefaults.set(self.score!, forKey: "score")
+            getQuestion()
         }))
-        self.present(alertSI, animated: true)
+        self.present(alertYES, animated: true)
         }
     
     func wrongAnswerTapped() {
@@ -70,7 +107,8 @@ class QuestionViewController: UIViewController {
         alertNO.addAction(UIAlertAction(title: "Ups! 😅", style: .cancel, handler: { [self] _ in
             NSLog("The \"correct answer\" alert occured.")
             //updateQuestion()
-            setRandomQuestion()
+            //setRandomQuestion()
+            getQuestion()
         }))
         self.present(alertNO, animated: true)
     }
@@ -78,15 +116,6 @@ class QuestionViewController: UIViewController {
     private func updateQuestion() {
         currentQuestionIndex += 1
         setCurrentQuestion(for: currentQuestionIndex)
-    }
-
-    private func setRandomQuestion() {
-        questionsService.getRandomQuestion { [weak self] receivedQuestions in
-            if receivedQuestions.count > 0 {
-                print(receivedQuestions)
-                self?.questionLabel.text = receivedQuestions[0].question
-            }
-        }
     }
     
     private func setCurrentQuestion(for index: Int) {
@@ -97,13 +126,17 @@ class QuestionViewController: UIViewController {
             questionLabel.text = questions[currentQuestionIndex].question
         }
     }
-    
-    private func validateCurrentQuestion(answer: Bool) -> Bool {
-        questions[currentQuestionIndex].answer == answer
+        
+}
+
+// Used to decode special characters like '&quot;' from the JSON
+extension String {
+    var htmlDecoded: String {
+        let decoded = try? NSAttributedString(data: Data(utf8), options: [
+            .documentType: NSAttributedString.DocumentType.html,
+            .characterEncoding: String.Encoding.utf8.rawValue
+        ], documentAttributes: nil).string
+
+        return decoded ?? self
     }
-    
-    private func sendResultAlert(for result: Bool) {
-        result ? rightAnswerTapped() : wrongAnswerTapped()
-    }
-    
 }

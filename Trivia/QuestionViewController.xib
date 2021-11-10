@@ -11,6 +11,7 @@
             <connections>
                 <outlet property="nameLabel" destination="PD8-eD-zgF" id="Z9T-cn-SD3"/>
                 <outlet property="questionLabel" destination="h8v-KJ-x7e" id="H5P-V2-iIh"/>
+                <outlet property="scoreLabel" destination="6Sb-u6-vBG" id="3AJ-PK-5qt"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -39,13 +40,13 @@
                         <action selector="noButtonTapped:" destination="-1" eventType="touchUpInside" id="rBh-cQ-6Vb"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Si el dolor se va: ¿La inflamacion vuelve?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h8v-KJ-x7e">
-                    <rect key="frame" x="39.5" y="328" width="335" height="250"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h8v-KJ-x7e">
+                    <rect key="frame" x="30" y="303" width="354" height="300"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="250" id="2vn-ms-3qY"/>
-                        <constraint firstAttribute="width" constant="335" id="Pjj-HI-83h"/>
+                        <constraint firstAttribute="height" constant="300" id="2vn-ms-3qY"/>
+                        <constraint firstAttribute="width" constant="354" id="Pjj-HI-83h"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="Futura-MediumItalic" family="Futura" pointSize="34"/>
+                    <fontDescription key="fontDescription" name="Futura-MediumItalic" family="Futura" pointSize="30"/>
                     <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -63,6 +64,12 @@
                         <action selector="yesButtonTapped:" destination="-1" eventType="touchUpInside" id="dp4-nS-jkK"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Sb-u6-vBG">
+                    <rect key="frame" x="161" y="158.5" width="92" height="32"/>
+                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="24"/>
+                    <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -70,9 +77,11 @@
                 <constraint firstItem="h8v-KJ-x7e" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="0yp-Do-ixo"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="LCB-BF-YdW" secondAttribute="bottom" constant="60" id="585-GL-eJ3"/>
                 <constraint firstItem="LCB-BF-YdW" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="5nv-h5-qnz"/>
+                <constraint firstItem="6Sb-u6-vBG" firstAttribute="top" secondItem="PD8-eD-zgF" secondAttribute="bottom" constant="30" id="HoQ-HW-FSt"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="8yo-en-B6q" secondAttribute="bottom" constant="60" id="LJd-UX-pzD"/>
                 <constraint firstItem="PD8-eD-zgF" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="40" id="UYL-rF-YSP"/>
                 <constraint firstItem="h8v-KJ-x7e" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="pWW-hZ-13w"/>
+                <constraint firstItem="6Sb-u6-vBG" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="rLd-nD-NFd"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="8yo-en-B6q" secondAttribute="trailing" constant="50" id="x9i-LT-gMD"/>
                 <constraint firstItem="PD8-eD-zgF" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="xZD-Yq-1Yz"/>
             </constraints>
