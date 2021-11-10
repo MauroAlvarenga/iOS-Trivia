@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		89AE5797A9CB9DEC13F1FFDD /* Pods_Trivia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81894A142FB673DFD526E02F /* Pods_Trivia.framework */; };
 		8A04454E2733558000AC0E29 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A04454D2733558000AC0E29 /* TabBarViewController.swift */; };
+		8A4C32A0273C7783005B7291 /* QuestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4C329F273C7783005B7291 /* QuestionViewModel.swift */; };
 		8A4D3FD1272E24A400D3FD17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4D3FD0272E24A400D3FD17 /* AppDelegate.swift */; };
 		8A4D3FD3272E24A400D3FD17 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4D3FD2272E24A400D3FD17 /* SceneDelegate.swift */; };
 		8A4D3FD5272E24A400D3FD17 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A4D3FD4272E24A400D3FD17 /* ViewController.swift */; };
@@ -34,6 +35,7 @@
 		7485D8C11D727706AD4E239B /* Pods-Trivia.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Trivia.release.xcconfig"; path = "Target Support Files/Pods-Trivia/Pods-Trivia.release.xcconfig"; sourceTree = "<group>"; };
 		81894A142FB673DFD526E02F /* Pods_Trivia.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Trivia.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A04454D2733558000AC0E29 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		8A4C329F273C7783005B7291 /* QuestionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewModel.swift; sourceTree = "<group>"; };
 		8A4D3FCD272E24A400D3FD17 /* Trivia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trivia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A4D3FD0272E24A400D3FD17 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A4D3FD2272E24A400D3FD17 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				8A4D3FE6272E374400D3FD17 /* InitialViewController.swift */,
 				8A4D3FE7272E374400D3FD17 /* InitialViewController.xib */,
 				8A86B9DF27331241008F4988 /* QuestionViewController.swift */,
+				8A4C329F273C7783005B7291 /* QuestionViewModel.swift */,
 				8A4F3BE5273605D0006F7B71 /* InformationViewController.swift */,
 				8A4F3BE6273605D0006F7B71 /* InformationViewController.xib */,
 				8A86B9E027331241008F4988 /* QuestionViewController.xib */,
@@ -258,6 +261,7 @@
 				8A86B9E52733348A008F4988 /* CategoriesViewController.swift in Sources */,
 				8A4F3BDE273576B3006F7B71 /* QuestionsService.swift in Sources */,
 				8A4F3BE0273576CD006F7B71 /* CategoriesService.swift in Sources */,
+				8A4C32A0273C7783005B7291 /* QuestionViewModel.swift in Sources */,
 				8A4F3BDA27357626006F7B71 /* Question.swift in Sources */,
 				8A4D3FD1272E24A400D3FD17 /* AppDelegate.swift in Sources */,
 				8A4F3BE7273605D0006F7B71 /* InformationViewController.swift in Sources */,
