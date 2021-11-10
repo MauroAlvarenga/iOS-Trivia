@@ -24,8 +24,8 @@ class QuestionsService {
             case .success(let data):
                 do {
                     if let dataOK = data {
-//                        NSLog(data.description)
-//                        print(data)
+                        NSLog(dataOK.description)
+                        print(dataOK)
                         let question = try JSONDecoder().decode(Questions.self, from: dataOK)
                         completion(question.results)
                     }
