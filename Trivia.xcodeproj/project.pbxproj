@@ -81,6 +81,69 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		8A49345E273DC5F90009C1C1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8A4D3FDB272E24A700D3FD17 /* LaunchScreen.storyboard */,
+				8A4D3FE7272E374400D3FD17 /* InitialViewController.xib */,
+				8A4F3BE6273605D0006F7B71 /* InformationViewController.xib */,
+				8A86B9E027331241008F4988 /* QuestionViewController.xib */,
+				8A86B9E42733348A008F4988 /* CategoriesViewController.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8A49345F273DC64B0009C1C1 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				8A4D3FD0272E24A400D3FD17 /* AppDelegate.swift */,
+				8A4D3FD2272E24A400D3FD17 /* SceneDelegate.swift */,
+				8A4D3FD4272E24A400D3FD17 /* ViewController.swift */,
+				8A4D3FD9272E24A700D3FD17 /* Assets.xcassets */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		8A493460273DC6F10009C1C1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8A4D3FE6272E374400D3FD17 /* InitialViewController.swift */,
+				8A86B9DF27331241008F4988 /* QuestionViewController.swift */,
+				8A4F3BE5273605D0006F7B71 /* InformationViewController.swift */,
+				8A86B9E32733348A008F4988 /* CategoriesViewController.swift */,
+				8A04454D2733558000AC0E29 /* TabBarViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		8A493461273DC7470009C1C1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8A4F3BDB27357674006F7B71 /* Category.swift */,
+				8A4F3BD927357626006F7B71 /* Question.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8A493462273DC75E0009C1C1 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8A4F3BDF273576CD006F7B71 /* CategoriesService.swift */,
+				8A4F3BE12735785E006F7B71 /* AlamofireAPIClient.swift */,
+				8A4F3BDD273576B3006F7B71 /* QuestionsService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		8A493463273DC7760009C1C1 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				8A4C329F273C7783005B7291 /* QuestionViewModel.swift */,
+				8A4F3BD72735743A006F7B71 /* CategoriesViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		8A4D3FC4272E24A400D3FD17 = {
 			isa = PBXGroup;
 			children = (
@@ -102,28 +165,13 @@
 		8A4D3FCF272E24A400D3FD17 /* Trivia */ = {
 			isa = PBXGroup;
 			children = (
-				8A4D3FD0272E24A400D3FD17 /* AppDelegate.swift */,
-				8A4D3FD2272E24A400D3FD17 /* SceneDelegate.swift */,
-				8A4D3FD4272E24A400D3FD17 /* ViewController.swift */,
-				8A4D3FD9272E24A700D3FD17 /* Assets.xcassets */,
-				8A4D3FDB272E24A700D3FD17 /* LaunchScreen.storyboard */,
+				8A493463273DC7760009C1C1 /* ViewModels */,
+				8A493462273DC75E0009C1C1 /* Services */,
+				8A493461273DC7470009C1C1 /* Models */,
+				8A493460273DC6F10009C1C1 /* Controllers */,
+				8A49345F273DC64B0009C1C1 /* App */,
+				8A49345E273DC5F90009C1C1 /* Views */,
 				8A4D3FDE272E24A700D3FD17 /* Info.plist */,
-				8A4D3FE6272E374400D3FD17 /* InitialViewController.swift */,
-				8A4D3FE7272E374400D3FD17 /* InitialViewController.xib */,
-				8A86B9DF27331241008F4988 /* QuestionViewController.swift */,
-				8A4C329F273C7783005B7291 /* QuestionViewModel.swift */,
-				8A4F3BE5273605D0006F7B71 /* InformationViewController.swift */,
-				8A4F3BE6273605D0006F7B71 /* InformationViewController.xib */,
-				8A86B9E027331241008F4988 /* QuestionViewController.xib */,
-				8A86B9E32733348A008F4988 /* CategoriesViewController.swift */,
-				8A4F3BD72735743A006F7B71 /* CategoriesViewModel.swift */,
-				8A4F3BDF273576CD006F7B71 /* CategoriesService.swift */,
-				8A4F3BE12735785E006F7B71 /* AlamofireAPIClient.swift */,
-				8A4F3BDD273576B3006F7B71 /* QuestionsService.swift */,
-				8A4F3BDB27357674006F7B71 /* Category.swift */,
-				8A4F3BD927357626006F7B71 /* Question.swift */,
-				8A86B9E42733348A008F4988 /* CategoriesViewController.xib */,
-				8A04454D2733558000AC0E29 /* TabBarViewController.swift */,
 			);
 			path = Trivia;
 			sourceTree = "<group>";
